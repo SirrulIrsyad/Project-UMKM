@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   =============== 🌐 GLOBAL RESET & LAYOUT DASAR ============================
+   ========================================================================== */
+
+/* Reset box-sizing untuk semua elemen */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Efek scroll halus saat navigasi anchor/scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+:root {
+  height: 100%;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #213547;
+  background-color: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🔧 Fix: Hapus centering global yg menyebabkan layout "separo" */
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px;
+  background: #fff;
+  color: #000;
+}
+
+/* Headings */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   =============== 🔗 LINK STYLE ============================================
+   ========================================================================== */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* ==========================================================================
+   =============== 🔘 BUTTON BASE STYLE =====================================
+   ========================================================================== */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.7);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   =============== 🎨 UTILITY BUTTON CLASSES ================================
+   ========================================================================== */
+.btn-primary {
+  background-color: #3b82f6; /* Tailwind blue-500 */
+  color: white;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #2563eb; /* Tailwind blue-600 */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.6);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: #6b7280; /* Tailwind gray-500 */
+  color: white;
+  border: none;
+}
+.btn-secondary:hover {
+  background-color: #4b5563; /* Tailwind gray-600 */
+  box-shadow: 0 4px 12px rgba(75, 85, 99, 0.6);
+  transform: scale(1.05);
+}
+
+.btn-light {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  color: #111827; /* Tailwind gray-900 */
+  border: none;
+}
+.btn-light:hover {
+  background-color: #e5e7eb; /* Tailwind gray-200 */
+  box-shadow: 0 4px 12px rgba(229, 231, 235, 0.6);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   =============== ✨ ANIMASI KHUSUS (Custom Animations) =====================
+   ========================================================================== */
+
+/* Fade-in dari bawah */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+/* Scale-up efek muncul */
+@keyframes scale-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-scale-up {
+  animation: scale-up 0.4s ease-out both;
+}
+
+/* Spinner Loading */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.spinner {
+  border: 3px solid #e5e7eb; /* gray-200 */
+  border-top: 3px solid #3b82f6; /* blue-500 */
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
